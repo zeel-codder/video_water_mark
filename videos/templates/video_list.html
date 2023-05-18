@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <title>Videos</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+</head>
+
+<body>
+    <a class="back" href="/">Back</a>
+    <div class="container">
+        {% for video_status, videos in video_data.items %}
+        <div class="item">
+            <h1>{{video_status}}</h1>
+
+            {% for video in videos %}
+
+            <div>
+                <div>ID: {{video.id}}</div>
+                <div>Video: <a href="/media/{{video.video}}" target="_blank">click</a></div>
+                <div>Water Mark: {{video.water_mark}}</div>
+                <div>Status: {{video.status}}</div>
+                <div>Create Time: {{video.created_at}}</div>
+                <div>Update Time: {{video.modified_at}}</div>
+            </div>
+
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
